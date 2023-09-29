@@ -39,4 +39,5 @@ class MultiplyByFive extends Writable {
 const read = new ReadToHundredStreams()
 const write = new MultiplyByFive()
 const transform = new InverseStreams()
+
 read.pipe(transform).pipe(write)
