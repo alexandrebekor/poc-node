@@ -1,19 +1,10 @@
 import http from "node:http";
+import { json } from "../middleware/json.js";
 
 const users = [];
 
 const server = http.createServer(async (request, response) => {
-  const buffer = [];
-
-  for await (const chunck of request) {
-    buffer.push(chunck);
-  }
-
-  try {
-    request.body = JSON.parse(Buffer.concat(buffer).toString());
-  } catch (error) {
-    request.body = null;
-  }
+  await json(request, response);
 
   if (request.method === "POST") {
     const { name } = request.body;
@@ -26,9 +17,7 @@ const server = http.createServer(async (request, response) => {
   }
 
   if (request.method === "GET") {
-    return response
-      .setHeader("Content-Type", "application/json")
-      .end(JSON.stringify(users));
+    return response.end(JSON.stringify(users));
   }
 });
 

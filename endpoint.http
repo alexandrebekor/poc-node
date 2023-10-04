@@ -6,7 +6,7 @@ POST http://localhost:3335
 Accept: application/json
 
 {
-  "name": "Alexandre 123"
+  "name": "Alexandre 1234"
 }
 
 ###

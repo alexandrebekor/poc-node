@@ -17,7 +17,7 @@ class Read extends Readable {
   }
 }
 
-fetch("http://localhost:3333", {
+fetch("http://localhost:3335", {
   method: "POST",
   body: new Read(),
   duplex: "half",
