@@ -1,8 +1,21 @@
-GET http://localhost:3335
+GET http://localhost:3335/users
 Content-Type: application/json
 
 ###
-POST http://localhost:3335
+GET http://localhost:3335/users?search=Alexandre
+Content-Type: application/json
+
+###
+POST http://localhost:3335/users
+Accept: application/json
+
+{
+  "name": "Giovana",
+  "email": "staff@giovana.com"
+}
+
+###
+PUT http://localhost:3335/users/126edfd4-b53f-42f7-a158-5decd43bcc66
 Accept: application/json
 
 {
@@ -10,4 +23,4 @@ Accept: application/json
 }
 
 ###
-PUT http://localhost:3000/
+DELETE http://localhost:3335/users/5c733433-46ec-4696-b33e-43dc58d7475f
